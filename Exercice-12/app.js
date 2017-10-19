@@ -2,7 +2,9 @@ var hoverMe = document.getElementsByClassName('hoverMe');
 
 // Exercice 01
 var hover = function (event) {
-  hoverMe[0].style.opacity = "0";
+  for (let I=0;I<hoverMe.length;I++){
+    hoverMe[I].style.opacity = "0";
+  }
 }
 
 for (let I=0;I<hoverMe.length;I++){
@@ -11,7 +13,9 @@ for (let I=0;I<hoverMe.length;I++){
 
 // Exercice 02
 var click = function (event) {
-  hoverMe[0].style.opacity = "1";
+  for (let I=0;I<hoverMe.length;I++){
+    hoverMe[I].style.opacity = "1";
+  }
 }
 
 for (let I=0;I<hoverMe.length;I++){

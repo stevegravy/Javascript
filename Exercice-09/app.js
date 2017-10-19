@@ -23,5 +23,4 @@ function testNbr(a) {
 }
 
 var nbr = randomNbr(20,80)
-console.log(nbr);
 console.log("C'est juste tu as trouvé en " + testNbr(nbr) + " coup(s)");
