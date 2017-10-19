@@ -31,6 +31,5 @@ function guessLetter(firstTab,secondTab) {
   return ("Félicitation vous avez gagné avec " + cpt + " erreur(s).");
 }
 
-
 console.log("Voici le jeux de pendu de votre vie !!!!");
 console.log(guessLetter(letter,guessedLetter));

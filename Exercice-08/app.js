@@ -1,19 +1,23 @@
 // PNG
-var PNG = {
-  name: "Mercuro Crome",
-  age: 22,
-  items_to_give: ["bandage","seringue","médicament"]
+class PNG {
+  constructor (name,age,items_to_give) {
+    this.name = name;
+    this.age = age;
+    this.items_to_give = items_to_give;
+  }
 }
 
-for (key in PNG) {
-  console.log(key + " : " + PNG[key]);
+var firstPNG = new PNG("Mercuro Crome",22,["Bandage","seringue","médicament"]);
+
+for (key in firstPNG) {
+  console.log(key + " : " + firstPNG[key]);
 }
 
-function giveItem () {
-  return console.log(PNG.items_to_give[Math.floor(Math.random()*3)]);
+function giveItem(obj) {
+  return console.log(obj.items_to_give[Math.floor(Math.random()*3)]);
 }
 
-giveItem();
+giveItem(firstPNG);
 
 // Shop
 class caract {
@@ -28,13 +32,13 @@ class caract {
 
 var shop = [new caract("épée",18,8,8,true),new caract("Hache",22,12,14,false),new caract("sceptre",6,22,12,true)];
 
-function showItems () {
+function showItems() {
   for (let I = 0; I < shop.length; I++) {
     console.log(shop[I]);
   }
 }
 
-function showDispo () {
+function showDispo() {
   for (let I = 0; I < shop.length; I++) {
     if (shop[I].available == true) {
       console.log(shop[I]);
@@ -42,7 +46,7 @@ function showDispo () {
   }
 }
 
-function showLevelMin () {
+function showLevelMin() {
   for (let I = 0; I < shop.length; I++) {
     if (shop[I].minLevel >= 10) {
       console.log(shop[I]);
@@ -55,7 +59,16 @@ showDispo();
 showLevelMin();
 
 // Personnage
+var mainCharacter = {
+  name: "Ewmar Rimis",
+  level: 10,
+  life: 300,
+  weapon: {name:"épée",damage:15},
+  attack: function () {
+    return mainCharacter.name + " attaque avec l'arme " + mainCharacter.weapon.name + 
+	   " les dégats sont de " + (mainCharacter.weapon.damage * mainCharacter.level);
+  }
+}
 
-
-// Adversaire
+console.log(mainCharacter.attack());
 

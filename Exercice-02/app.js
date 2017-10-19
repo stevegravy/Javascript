@@ -14,7 +14,7 @@ if (Langues == "fr") {
 
 console.log(Message);
 
-//Affichage du score
+// Affichage du score
 var Score = 50;
 var Result;
 
@@ -28,7 +28,7 @@ if (Score >= 90) {
 
 console.log(Result);
 
-//Mettre au pluriel
+// Mettre au pluriel
 var motSingulier = "mot";
 var NbrMot = 5;
 var Result;
