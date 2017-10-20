@@ -7,10 +7,11 @@ class PNG {
 }
 
 class weapon {
-  constructor (title,physic,magic,minLevel,available) {
+  constructor (title,physic,magic,damage,minLevel,available) {
     this.title = title;
     this.physic = physic;
     this.magic = magic;
+    this.damage = damage;
     this.minLevel = minLevel;
     this.available = available;
   }
@@ -22,13 +23,15 @@ class character {
     this.level = level;
     this.life = life;
     this.weapon = weapon;
-    this.attack = function () {
-      return this.name + " attaque avec l'arme " + this.weapon.name + 
-  	     ", les dégats sont de " + (this.weapon.damage * this.level);
+    this.attack = function (opponent) {
+      opponent.life -= this.weapon.damage * this.level;
+      console.log(this.name + " attack with the weapon " + this.weapon.title + 
+  	     ", the damage are " + (this.weapon.damage * this.level));
+      opponent.receiveDamage(this.weapon.damage * this.level)
     }
     this.receiveDamage = function (damage) {
-      this.life -= damage;
-      return "Vous avez perdu " + (damage) + " points de vie.";
+      console.log(this.name + " lost " + (damage) + " points of life");
+      console.log(this.name + " now has " + this.life + " points of life")
     }
   }
 }
@@ -71,20 +74,22 @@ function showLevelMin(obj) {
 }
 
 // PNG
-var firstPNG = new PNG("Mercuro Crome",22,["Bandage","seringue","médicament"]);
+var firstPNG = new PNG("Mercuro Crome",22,["bandage","syringe","medicine"]);
 
 listObj(firstPNG);
 giveItem(firstPNG);
 
 // Shop
-var shop = [new weapon("épée",18,8,8,true),new weapon("Hache",22,12,14,false),new weapon("sceptre",6,22,12,true)];
+var shop = [new weapon("sword",18,8,12,8,true),new weapon("axe",22,12,15,14,false),new weapon("scepter",6,22,13,12,true)];
 
 showItems(shop);
 showDispo(shop);
 showLevelMin(shop);
 
 // Personnage
-var mainCharacter = new character("Ewmar Rimis",10,1500,["épée",15]);
-console.log(mainCharacter.attack());
+var mainCharacter = new character("Ewmar Rimis",10,1500,shop[0]);
 
 // Adversaire
+var opponentCharacter = new character("Nox the time master",8,1800,shop[2]);
+mainCharacter.attack(opponentCharacter);
+
