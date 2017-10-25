@@ -1,5 +1,5 @@
 // Exercice 11
-let request = new XMLHttpRequest();
+var request = new XMLHttpRequest();
 request.open ('GET', ' https://raw.githubusercontent.com/becodeorg/Lovelace-promo-2/master/Parcours/JavaScript/11-AJAX/files/data.json ');
 
 request.onload = function() {

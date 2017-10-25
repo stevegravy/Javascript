@@ -1,6 +1,6 @@
 // Exerice 1
 var colorKey = function (event) {
-   var perso = document.getElementById("character");
+   let perso = document.getElementById("character");
    switch (event.keyCode) {
     case 97:
       perso.style.backgroundColor = "red";

@@ -1,5 +1,5 @@
 // Pair ou impair
-for (var I = 0; I < 20; I++) {
+for (let I = 0; I < 20; I++) {
   if (I%2 != 0) {
     console.log(I + " est impair");
   } else {
@@ -8,13 +8,13 @@ for (var I = 0; I < 20; I++) {
 }
 
 // Multiplication Tables
-for (var I = 0; I <10; I++) {
+for (let I = 0; I <10; I++) {
   console.log(I*9);
 }
 
 // Assigner des grades
 // Switch or if - if else?
-for (var I = 0; I <100; I++) {
+for (let I = 0; I <100; I++) {
   switch (true) {
     case (I > 90):
       console.log(I + ", votre rang est A");
@@ -36,7 +36,7 @@ for (var I = 0; I <100; I++) {
 // Pyramide
 var Message = "";
 
-for (var I = 0; I <5; I++) {
+for (let I = 0; I <5; I++) {
   Message += "* ";
   console.log(Message);
 }
