@@ -6,39 +6,39 @@ request.onload = function() {
   let data = JSON.parse(request.responseText);
   console.log(data);
 
-  let data_with_scores = data.map(function (objet) {
-    random_nb = Math.floor(Math.random() * 1000) + 1;
-    objet.score = random_nb;
-    return objet;
+  let dataScore = data.map(function (obj) {
+    nbr = Math.floor(Math.random() * 1000) + 1;
+    obj.score = nbr; 
+    return obj;
   });
 
-  console.log(data_with_scores);
-  let data_sorted = data_with_scores.sort(function (a, b) {
+  console.log(dataScore);
+  let dataSort = dataScore.sort(function (a, b) {
     return a.score - b.score;
   });
 
-  console.log(data_sorted);
+  console.log(dataSort);
 
-  data_with_scores.forEach(function(objet) {
-    if (objet.score < 500) {
-      console.log(objet);
+  dataScore.forEach(function(obj) {
+    if (obj.score < 500) {
+      console.log(obj);
     }
-    else if (objet.score < 750) {
-      console.log(objet);
+    else if (obj.score < 750) {
+      console.log(obj);
     }
-    else if (objet.score >= 750) {
-      console.log(objet);
+    else if (obj.score >= 750) {
+      console.log(obj);
     }
   });
 
-  data_filtered = data.filter(function (objet) {
-    return objet.country == "Bahrain";
+  dataCountry = data.filter(function (obj) {
+    return obj.country == "Bahrain";
   });
 
-  console.log(data_filtered);
+  console.log(dataCountry);
   console.log(data.length);
-  console.log(data_sorted[0]); 
-  console.log(data_sorted[99]);
+  console.log(dataSort[0]); 
+  console.log(dataSort[99]);
 }
 
 request.send();
